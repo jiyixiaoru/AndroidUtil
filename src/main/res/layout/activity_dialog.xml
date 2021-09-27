@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".dialog.DialogActivity">
+
+    <Button
+        android:id="@+id/dialog_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show提示Dialog" />
+
+    <Button
+        android:id="@+id/dialog_wait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show等待的dialog" />
+
+    <Button
+        android:id="@+id/dialog_wait_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭等待的dialog" />
+
+    <Button
+        android:id="@+id/dialog_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show成功的dialog" />
+
+    <Button
+        android:id="@+id/dialog_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show失败的dialog" />
+</LinearLayout>

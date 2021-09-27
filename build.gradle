@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 28
 
     defaultConfig {
         applicationId "com.wkr.androidutil"
         minSdk 21
-        targetSdk 31
+        targetSdk 28
         versionCode 1
         versionName "1.0"
 
@@ -25,6 +25,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //开启ViewBinding(简化view获取):Android Studio对于ViewBinding的支持是从3.6版本开始的，AS 3.6版本内置了Gradle插件
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -35,4 +40,17 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //---------------网络框架：OkGo -----------------------------
+    //必须使用
+    implementation 'com.lzy.net:okgo:3.0.4'
+    //以下三个选择添加，okrx和okrx2不能同时使用
+//    implementation 'com.lzy.net:okrx:1.0.2'
+    implementation 'com.lzy.net:okrx2:2.0.2'
+    implementation 'com.lzy.net:okserver:2.0.5'
+    //----------------------end--------------------------------
+
+    //-------------------------dialogUtil-----------------------------
+    implementation 'com.kongzue.dialog_v3x:dialog:3.2.4'
+    //-----------------------end------------------------------
 }
