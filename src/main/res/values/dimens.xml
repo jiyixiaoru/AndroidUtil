@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CustomAlertDialog-->
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <dimen name="alert_width">280dp</dimen>
+    <dimen name="alert_height">180dp</dimen>
+    <dimen name="font_size_smaller">15sp</dimen>
+    <dimen name="font_size_normal_smaller">17sp</dimen>
+    <dimen name="font_size_normal">18sp</dimen>
+    <dimen name="font_size_large">23sp</dimen>
+</resources>

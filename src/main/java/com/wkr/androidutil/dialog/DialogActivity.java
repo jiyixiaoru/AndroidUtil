@@ -35,12 +35,12 @@ public class DialogActivity extends BaseActivity<ActivityDialogBinding> implemen
         switch (v.getId()) {
             case R.id.dialog_msg:
                 DialogUtil.showMessageDialog(DialogActivity.this, "友情提示", "您的信用卡即将到期",
-                        "确定", new DialogUtil.OkBtnClickListener() {
+                        "确定", new BaseDialogUtil.OkBtnClickListener() {
                             @Override
                             public void onClick() {
                                 ToastUtil.showToast(DialogActivity.this, "点击了确定按钮");
                             }
-                        }, "取消", new DialogUtil.CancelBtnClickListener() {
+                        }, "取消", new BaseDialogUtil.CancelBtnClickListener() {
                             @Override
                             public void onClick() {
                                 ToastUtil.showToast(DialogActivity.this, "点击了取消按钮");
