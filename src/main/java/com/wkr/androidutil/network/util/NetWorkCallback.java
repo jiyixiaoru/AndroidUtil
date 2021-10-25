@@ -9,7 +9,7 @@ import okhttp3.Response;
 /***
  * 网络请求回调类
  */
-public interface NetWorkCallback {
+public interface NetWorkCallback<T>  {
     /**
      * UI线程，请求网络之前
      * 可以显示对话框，添加/修改/移除 请求参数
@@ -55,7 +55,7 @@ public interface NetWorkCallback {
     /**
      * UI 线程，请求结束后回调，无论网络请求成功还是失败，都会调用，可以用于关闭显示对话框
      */
-    void onAfter();
+    void onFinish();
 
     /**
      * UI 线程，文件上传过程中回调，只有请求方式包含请求体才回调（GET,HEAD不会回调）

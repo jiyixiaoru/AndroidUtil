@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseDialogUtil {
     //默认状态框显示时间
-    public static final int TIP_DIALOG_TIMEOUT = 6000;
+    public static final int TIP_DIALOG_TIMEOUT = 30000;
 
 
     /**

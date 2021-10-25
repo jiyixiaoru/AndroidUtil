@@ -11,7 +11,7 @@ import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public abstract class DialogNetWorkCallback implements NetWorkCallback {
+public abstract class DialogNetWorkCallback<T> implements NetWorkCallback<T> {
     private AppCompatActivity context;
     private String dialogMsg;
 
@@ -39,14 +39,24 @@ public abstract class DialogNetWorkCallback implements NetWorkCallback {
     }
 
     @Override
-    public abstract void onSuccess(Call call, Response response);
-
-    @Override
-    public abstract void onError(Call call, Response response, Exception e);
-
-    @Override
-    public void onAfter() {
+    public void onSuccess(Call call, Response response) {
         DialogUtil.dismiss();
+        success(call, response);
+    }
+
+    public abstract void success(Call call, Response response);
+
+    @Override
+    public void onError(Call call, Response response, Exception e) {
+        DialogUtil.dismiss();
+        error(call, response, e);
+    }
+
+    public abstract void error(Call call, Response response, Exception e);
+
+    @Override
+    public void onFinish() {
+
     }
 
     @Override
