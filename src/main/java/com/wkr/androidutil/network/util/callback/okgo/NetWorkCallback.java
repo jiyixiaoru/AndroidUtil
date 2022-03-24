@@ -1,4 +1,4 @@
-package com.wkr.androidutil.network.util;
+package com.wkr.androidutil.network.util.callback.okgo;
 
 import java.io.IOException;
 
@@ -50,7 +50,7 @@ public interface NetWorkCallback<T>  {
      * @param response 本次网络访问的结果对象，包含了响应头，响应码等
      * @param e 本次网络访问的异常信息，如果服务器内部发生了错误，响应码为 404,或大于等于500
      */
-    void onError(Call call, Response response, Exception e);
+    void onError(Call call, Response response, Throwable e);
 
     /**
      * UI 线程，请求结束后回调，无论网络请求成功还是失败，都会调用，可以用于关闭显示对话框

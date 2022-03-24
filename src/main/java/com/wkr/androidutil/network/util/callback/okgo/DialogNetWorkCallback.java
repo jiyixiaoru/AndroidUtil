@@ -1,9 +1,8 @@
-package com.wkr.androidutil.network.util.callback;
+package com.wkr.androidutil.network.util.callback.okgo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wkr.androidutil.dialog.DialogUtil;
-import com.wkr.androidutil.network.util.NetWorkCallback;
 
 import java.io.IOException;
 
@@ -47,12 +46,12 @@ public abstract class DialogNetWorkCallback<T> implements NetWorkCallback<T> {
     public abstract void success(Call call, Response response);
 
     @Override
-    public void onError(Call call, Response response, Exception e) {
+    public void onError(Call call, Response response, Throwable e) {
         DialogUtil.dismiss();
         error(call, response, e);
     }
 
-    public abstract void error(Call call, Response response, Exception e);
+    public abstract void error(Call call, Response response, Throwable e);
 
     @Override
     public void onFinish() {

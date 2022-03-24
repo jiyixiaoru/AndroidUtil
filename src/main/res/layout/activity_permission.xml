@@ -7,21 +7,9 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/main_network"
+        android:id="@+id/permission_apply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="网络框架" />
-
-    <Button
-        android:id="@+id/main_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dialog工具类" />
-
-    <Button
-        android:id="@+id/main_permission"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:text="权限申请" />
-
 </LinearLayout>

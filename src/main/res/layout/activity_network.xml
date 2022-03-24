@@ -6,34 +6,15 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/net_post"
+        android:id="@+id/net_ok_go"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="一般Post请求" />
+        android:text="OkGo框架" />
 
     <Button
-        android:id="@+id/net_get"
+        android:id="@+id/net_re_rx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="一般get请求" />
+        android:text="Retrofit+RxJava+OkHttp" />
 
-    <Button
-        android:id="@+id/net_down_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="下载文件" />
-
-    <Button
-        android:id="@+id/net_up_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="上传文件" />
-
-    <TextView
-        android:id="@+id/net_response"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#C9C9C9"
-        android:text="结果显示"
-        android:textColor="@color/white" />
 </LinearLayout>

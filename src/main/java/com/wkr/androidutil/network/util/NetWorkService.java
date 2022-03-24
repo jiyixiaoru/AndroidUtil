@@ -1,5 +1,7 @@
 package com.wkr.androidutil.network.util;
 
+import com.wkr.androidutil.network.util.callback.okgo.NetWorkCallback;
+
 /***
  * 定义一些网络请求类型及一些基本参数
  */
@@ -12,7 +14,7 @@ public interface NetWorkService<T> {
      * @param tag   请求的tag,用于取消请求
      * @param netWorkCallback
      */
-    void post(String url,String jsonStr,String tag,NetWorkCallback netWorkCallback);
+    void post(String url, String jsonStr, String tag, NetWorkCallback netWorkCallback);
 
     /***
      * get请求

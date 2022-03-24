@@ -37,4 +37,14 @@ public class RequestBean {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "RequestBean{" +
+                "deviceId='" + deviceId + '\'' +
+                ", transTicketNo='" + transTicketNo + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                '}';
+    }
 }

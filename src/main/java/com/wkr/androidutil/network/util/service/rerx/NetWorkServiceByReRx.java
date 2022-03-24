@@ -1,6 +1,6 @@
 package com.wkr.androidutil.network.util.service.rerx;
 
-import com.wkr.androidutil.network.util.NetWorkCallback;
+import com.wkr.androidutil.network.util.callback.okgo.NetWorkCallback;
 import com.wkr.androidutil.network.util.NetWorkService;
 
 public class NetWorkServiceByReRx<T> implements NetWorkService<T> {

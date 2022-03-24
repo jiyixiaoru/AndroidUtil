@@ -5,7 +5,7 @@ import com.lzy.okgo.callback.Callback;
 import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
-import com.wkr.androidutil.network.util.NetWorkCallback;
+import com.wkr.androidutil.network.util.callback.okgo.NetWorkCallback;
 import com.wkr.androidutil.network.util.NetWorkService;
 
 /***

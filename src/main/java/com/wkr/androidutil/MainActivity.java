@@ -6,6 +6,7 @@ import android.view.View;
 import com.wkr.androidutil.databinding.ActivityMainBinding;
 import com.wkr.androidutil.dialog.DialogActivity;
 import com.wkr.androidutil.network.NetworkActivity;
+import com.wkr.androidutil.permission.PermissionActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> implements View.OnClickListener {
 
@@ -23,10 +24,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     protected void initListener() {
         binding.mainNetwork.setOnClickListener(this);
         binding.mainDialog.setOnClickListener(this);
+        binding.mainPermission.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
+
         Intent intent = null;
         switch (view.getId()) {
             case R.id.main_network:
@@ -35,9 +38,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
             case R.id.main_dialog:
                 intent = new Intent(this, DialogActivity.class);
                 break;
+            case R.id.main_permission:
+                intent = new Intent(this, PermissionActivity.class);
+                break;
         }
         startActivity(intent);
     }
-
-
 }

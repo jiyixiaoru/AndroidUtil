@@ -1,19 +1,18 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id 'com.android.library'
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
-        applicationId "com.wkr.androidutil"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -26,73 +25,36 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    //开启ViewBinding(简化view获取):Android Studio对于ViewBinding的支持是从3.6版本开始的，AS 3.6版本内置了Gradle插件
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.20'
-    //--------------------测试--------------------------------
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //-------------------aspectj-----------------------------
-    implementation 'org.aspectj:aspectjrt:1.9.6'
-    implementation project(path: ':aspectj')
-    //---------------网络框架：OkGo -----------------------------
-    //必须使用
-    implementation 'com.lzy.net:okgo:3.0.4'
-    //以下三个选择添加，okrx和okrx2不能同时使用
-//    implementation 'com.lzy.net:okrx:1.0.2'
-    implementation 'com.lzy.net:okrx2:2.0.2'
-    implementation 'com.lzy.net:okserver:2.0.5'
-    //----------------------end--------------------------------
-
-    //-------------------------dialogUtil-----------------------------
-    implementation 'com.kongzue.dialog_v3x:dialog:3.2.4'
-    //-----------------------end------------------------------
-    //------------------------Retrofit-----------------------
-    // RxAndroid RxJava依赖库
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.0.7'
-    // OkHttp相关
-    implementation 'com.facebook.stetho:stetho:1.4.2'
-    implementation 'com.facebook.stetho:stetho-okhttp3:1.4.2'
-    // 网络请求相关
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:retrofit-mock:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
-    //--------------------------end--------------------------
-    //-------------------------gson---------------------------
-    implementation 'com.google.code.gson:gson:2.8.6'
-    //--------------------------end---------------------------
+    //aspect的jar包
+    implementation  'org.aspectj:aspectjrt:1.9.6'
 }
+//aspect支持
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main
 
 final def log = project.logger
-final def variants = project.android.applicationVariants
 
-variants.all { variant ->
+android.libraryVariants.all{ variant ->
+    if (!variant.buildType.isDebuggable()) {
+        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
+        return
+    }
 
     JavaCompile javaCompile = variant.javaCompileProvider.get()
     javaCompile.doLast {
         String[] args = ["-showWeaveInfo",
-                         "-1.8", // java1.8
-                         "-inpath", javaCompile.destinationDir.toString(), //需要处理的class文件目录
+                         "-1.8",
+                         "-inpath", javaCompile.destinationDir.toString(),
                          "-aspectpath", javaCompile.classpath.asPath,
                          "-d", javaCompile.destinationDir.toString(),
                          "-classpath", javaCompile.classpath.asPath,
@@ -133,5 +95,4 @@ variants.all { variant ->
             }
         }
     }
-
 }
